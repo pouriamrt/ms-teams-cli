@@ -1,0 +1,77 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#chats",
+  "value": [
+    {
+      "id": "19:99999999-8888-7777-6666-555555555555_ab06770f-89ff-4bb2-99a1-2b0b8d52975e@unq.gbl.spaces",
+      "topic": null,
+      "createdDateTime": "2026-05-20T10:00:00Z",
+      "lastUpdatedDateTime": "2026-05-22T14:03:00Z",
+      "chatType": "oneOnOne",
+      "viewpoint": {
+        "isHidden": false,
+        "lastMessageReadDateTime": "2026-05-22T13:00:00Z"
+      },
+      "members": [
+        {
+          "@odata.type": "#microsoft.graph.aadUserConversationMember",
+          "id": "MCMjMSMjZmFrZQ==",
+          "displayName": "Alice Smith",
+          "email": "alice@example.com",
+          "userId": "ab06770f-89ff-4bb2-99a1-2b0b8d52975e",
+          "roles": ["owner"]
+        },
+        {
+          "@odata.type": "#microsoft.graph.aadUserConversationMember",
+          "id": "MCMjMiMjZmFrZQ==",
+          "displayName": "Pouria Mortezaagha",
+          "email": "pouriamortezaagha7@gmail.com",
+          "userId": "99999999-8888-7777-6666-555555555555",
+          "roles": ["owner"]
+        }
+      ],
+      "lastMessagePreview": {
+        "id": "1716393780123",
+        "createdDateTime": "2026-05-22T14:03:00Z",
+        "isDeleted": false,
+        "from": {
+          "user": {
+            "displayName": "Alice Smith",
+            "id": "ab06770f-89ff-4bb2-99a1-2b0b8d52975e",
+            "userIdentityType": "aadUser"
+          }
+        },
+        "body": {"contentType": "text", "content": "lgtm, merging now"}
+      }
+    },
+    {
+      "id": "19:f3250d87f1b248acbc7de4ce6a8611c7@thread.v2",
+      "topic": "Platform planning",
+      "createdDateTime": "2026-05-15T09:00:00Z",
+      "lastUpdatedDateTime": "2026-05-22T11:20:00Z",
+      "chatType": "group",
+      "viewpoint": {
+        "isHidden": false,
+        "lastMessageReadDateTime": "2026-05-22T11:20:00Z"
+      },
+      "members": [
+        {
+          "@odata.type": "#microsoft.graph.aadUserConversationMember",
+          "displayName": "Bob Jones", "email": "bob@example.com",
+          "userId": "b2dd8a00-02e7-43fe-aaa4-8dc27897856b", "roles": ["owner"]
+        },
+        {
+          "@odata.type": "#microsoft.graph.aadUserConversationMember",
+          "displayName": "Pouria Mortezaagha", "email": "pouriamortezaagha7@gmail.com",
+          "userId": "99999999-8888-7777-6666-555555555555", "roles": ["owner"]
+        }
+      ],
+      "lastMessagePreview": {
+        "id": "1716385200000",
+        "createdDateTime": "2026-05-22T11:20:00Z",
+        "isDeleted": false,
+        "from": {"user": {"displayName": "Bob Jones", "id": "b2dd8a00-02e7-43fe-aaa4-8dc27897856b", "userIdentityType": "aadUser"}},
+        "body": {"contentType": "text", "content": "see you at 3"}
+      }
+    }
+  ]
+}

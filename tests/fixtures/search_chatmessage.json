@@ -1,0 +1,54 @@
+{
+  "value": [
+    {
+      "hitsContainers": [
+        {
+          "hits": [
+            {
+              "hitId": "1716393780123",
+              "rank": 1,
+              "summary": "lgtm, merging now",
+              "score": 5.6,
+              "resource": {
+                "@odata.type": "#microsoft.graph.chatMessage",
+                "id": "1716393780123",
+                "chatId": "19:abc@unq.gbl.spaces",
+                "createdDateTime": "2026-05-22T14:03:00Z",
+                "from": {
+                  "user": {
+                    "id": "ab06770f-89ff-4bb2-99a1-2b0b8d52975e",
+                    "displayName": "Alice Smith",
+                    "userIdentityType": "aadUser"
+                  }
+                },
+                "body": {"contentType": "text", "content": "lgtm, merging now"}
+              }
+            },
+            {
+              "hitId": "1716385200000",
+              "rank": 2,
+              "summary": "lgtm on the Q3 plan",
+              "score": 4.2,
+              "resource": {
+                "@odata.type": "#microsoft.graph.chatMessage",
+                "id": "1716385200000",
+                "chatId": "19:f3250d87f1b248acbc7de4ce6a8611c7@thread.v2",
+                "createdDateTime": "2026-05-22T11:20:00Z",
+                "from": {
+                  "user": {
+                    "id": "b2dd8a00-02e7-43fe-aaa4-8dc27897856b",
+                    "displayName": "Bob Jones",
+                    "userIdentityType": "aadUser"
+                  }
+                },
+                "body": {"contentType": "text", "content": "lgtm on the Q3 plan"}
+              }
+            }
+          ],
+          "total": 2,
+          "moreResultsAvailable": false
+        }
+      ]
+    }
+  ]
+}

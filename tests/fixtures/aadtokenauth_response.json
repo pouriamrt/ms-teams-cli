@@ -1,0 +1,8 @@
+{
+  "tokens": {
+    "skypeToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.FAKE-SKYPE-TOKEN.signature",
+    "expiresIn": 86400
+  },
+  "region": "amer",
+  "skypeChain": "FakeChain-2026"
+}

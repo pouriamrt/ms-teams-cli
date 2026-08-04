@@ -1,0 +1,23 @@
+{
+  "id": "19:11111111-1111-1111-1111-111111111111_22222222-2222-2222-2222-222222222222@unq.gbl.spaces",
+  "type": "Thread",
+  "members": [
+    {
+      "id": "8:orgid:22222222-2222-2222-2222-222222222222",
+      "type": "ThreadMember",
+      "userLink": "https://teams.microsoft.com/api/chatsvc/ca/v1/users/8:orgid:22222222-2222-2222-2222-222222222222",
+      "role": "Admin",
+      "capabilities": ["kickMember"]
+    },
+    {
+      "id": "8:orgid:11111111-1111-1111-1111-111111111111",
+      "type": "ThreadMember",
+      "userLink": "https://teams.microsoft.com/api/chatsvc/ca/v1/users/8:orgid:11111111-1111-1111-1111-111111111111",
+      "role": "Admin",
+      "capabilities": ["kickMember"]
+    }
+  ],
+  "properties": {},
+  "rosterVersion": 0,
+  "version": 0
+}

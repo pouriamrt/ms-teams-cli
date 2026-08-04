@@ -1,0 +1,58 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#chats('x')/messages",
+  "@odata.nextLink": null,
+  "value": [
+    {
+      "id": "1716393780123",
+      "createdDateTime": "2026-05-22T14:03:00Z",
+      "lastModifiedDateTime": "2026-05-22T14:03:00Z",
+      "deletedDateTime": null,
+      "subject": null,
+      "summary": null,
+      "chatId": "19:99999999-8888-7777-6666-555555555555_ab06770f-89ff-4bb2-99a1-2b0b8d52975e@unq.gbl.spaces",
+      "importance": "normal",
+      "messageType": "message",
+      "from": {
+        "user": {
+          "id": "ab06770f-89ff-4bb2-99a1-2b0b8d52975e",
+          "displayName": "Alice Smith",
+          "userIdentityType": "aadUser"
+        }
+      },
+      "body": {"contentType": "html", "content": "<p>lgtm, merging now</p>"},
+      "reactions": [
+        {
+          "reactionType": "like",
+          "createdDateTime": "2026-05-22T14:04:00Z",
+          "user": {
+            "user": {
+              "id": "99999999-8888-7777-6666-555555555555",
+              "displayName": "Pouria Mortezaagha",
+              "userIdentityType": "aadUser"
+            }
+          }
+        }
+      ],
+      "replyToId": null
+    },
+    {
+      "id": "1716393720000",
+      "createdDateTime": "2026-05-22T14:02:00Z",
+      "lastModifiedDateTime": "2026-05-22T14:02:00Z",
+      "deletedDateTime": null,
+      "chatId": "19:99999999-8888-7777-6666-555555555555_ab06770f-89ff-4bb2-99a1-2b0b8d52975e@unq.gbl.spaces",
+      "importance": "normal",
+      "messageType": "message",
+      "from": {
+        "user": {
+          "id": "99999999-8888-7777-6666-555555555555",
+          "displayName": "Pouria Mortezaagha",
+          "userIdentityType": "aadUser"
+        }
+      },
+      "body": {"contentType": "text", "content": "ok if I merge?"},
+      "reactions": [],
+      "replyToId": null
+    }
+  ]
+}

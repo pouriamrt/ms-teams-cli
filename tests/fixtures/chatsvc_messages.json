@@ -1,0 +1,50 @@
+{
+  "messages": [
+    {
+      "id": "1000000000001",
+      "messagetype": "RichText/Html",
+      "content": "<p>hello team</p>",
+      "from": "https://teams.microsoft.com/api/chatsvc/ca/v1/users/ME/contacts/8:orgid:11111111-1111-1111-1111-111111111111",
+      "imdisplayname": "Alice Group",
+      "composetime": "2026-05-25T13:00:00.000Z",
+      "conversationid": "19:abcdef1234567890@thread.v2",
+      "properties": {"replyToId": "987654321"}
+    },
+    {
+      "id": "1000000000002",
+      "messagetype": "Text",
+      "content": "plain text reply",
+      "from": "https://teams.microsoft.com/api/chatsvc/ca/v1/users/ME/contacts/8:orgid:00000000-0000-0000-0000-00000000000a",
+      "imdisplayname": "Me",
+      "composetime": "2026-05-25T12:59:00.000Z",
+      "conversationid": "19:abcdef1234567890@thread.v2"
+    },
+    {
+      "id": "1000000000003",
+      "messagetype": "Event/Call",
+      "content": "<callstarted/>",
+      "from": "https://teams.microsoft.com/api/chatsvc/ca/v1/users/ME/contacts/8:orgid:11111111-1111-1111-1111-111111111111",
+      "imdisplayname": "Alice Group",
+      "composetime": "2026-05-25T12:50:00.000Z",
+      "conversationid": "19:abcdef1234567890@thread.v2"
+    },
+    {
+      "id": "1000000000004",
+      "messagetype": "ThreadActivity/MemberJoined",
+      "content": "<memberjoined/>",
+      "composetime": "2026-05-25T12:45:00.000Z",
+      "conversationid": "19:abcdef1234567890@thread.v2"
+    },
+    {
+      "id": "1000000000005",
+      "messagetype": "RichText/Html",
+      "content": "<p>deleted message</p>",
+      "from": "https://teams.microsoft.com/api/chatsvc/ca/v1/users/ME/contacts/8:orgid:11111111-1111-1111-1111-111111111111",
+      "imdisplayname": "Alice Group",
+      "composetime": "2026-05-25T12:40:00.000Z",
+      "deletetime": "2026-05-25T12:42:00.000Z",
+      "conversationid": ""
+    }
+  ],
+  "_metadata": {}
+}
