@@ -7,7 +7,7 @@ Flow:
 3. User opens https://teams.microsoft.com/v2/ in their normal browser, signs in,
    then clicks the bookmarklet.
 4. The browser navigates a new tab to the CLI's localhost ``/auth`` route. The
-   localStorage payload travels in the URL fragment (never sent over the
+   MSAL localStorage entries travel in the URL fragment (never sent over the
    network from the Teams page).
 5. The localhost HTML page reads its own ``location.hash`` and POSTs the
    payload to ``/submit`` — same-origin, so Teams' CSP is bypassed entirely.
@@ -47,15 +47,28 @@ log = logging.getLogger(__name__)
 TEAMS_LOGIN_URL = "https://teams.microsoft.com/v2/"
 
 
-# The bookmarklet stringifies localStorage and opens a new tab on our local
-# server with the payload in the URL fragment. ``window.open`` is not a
-# connect-src and the fragment is never transmitted from the Teams page, so
-# Teams' CSP doesn't apply.
+# The bookmarklet opens a new tab on our local server with the payload in the
+# URL fragment. ``window.open`` is not a connect-src and the fragment is never
+# transmitted from the Teams page, so Teams' CSP doesn't apply.
+#
+# Only MSAL credential/account entries are sent. Teams keeps megabytes of app
+# state in localStorage; shipping all of it overflows the browser's URL length
+# limit and the fragment arrives truncated (JSONDecodeError mid-string). The
+# filter matches exactly what ``parse_localstorage`` consumes — RefreshToken,
+# IdToken, and account entries — and skips AccessToken blobs. Falls back to the
+# full dump if nothing matches, in case MSAL's schema shifts.
 _BOOKMARKLET_TEMPLATE = (
-    "javascript:(function(){{"
-    "var d=JSON.stringify(Object.fromEntries(Object.entries(localStorage)));"
-    "window.open('http://127.0.0.1:{port}/auth#'+encodeURIComponent(d),'_blank');"
-    "}})()"
+    "javascript:(function(){"
+    "var o={},i,k,v;"
+    "for(i=0;i<localStorage.length;i++){"
+    "k=localStorage.key(i);v=localStorage.getItem(k);"
+    "if(v&&(v.indexOf('\"RefreshToken\"')>-1||v.indexOf('\"IdToken\"')>-1||"
+    "(v.indexOf('\"homeAccountId\"')>-1&&v.indexOf('\"username\"')>-1)))o[k]=v;"
+    "}"
+    "if(!Object.keys(o).length)o=Object.fromEntries(Object.entries(localStorage));"
+    "window.open('http://127.0.0.1:__PORT__/auth#'+"
+    "encodeURIComponent(JSON.stringify(o)),'_blank');"
+    "})()"
 )
 
 # Served on GET /auth. The inline script reads the URL hash and POSTs the
@@ -248,7 +261,8 @@ class BookmarkletAuthHandler(http.server.BaseHTTPRequestHandler):
             try:
                 parsed = json.loads(post_data.decode("utf-8"))
             except (json.JSONDecodeError, UnicodeDecodeError) as exc:
-                self.server.capture_error = str(exc)
+                # Byte count makes a truncated fragment obvious in the error.
+                self.server.capture_error = f"{exc} (received {len(post_data)} bytes)"
                 self.send_response(400)
                 self.send_header("Access-Control-Allow-Origin", "*")
                 self.end_headers()
@@ -303,7 +317,7 @@ def capture_session(
             f"(tried {port}..{port + 99})."
         )
 
-    bookmarklet = _BOOKMARKLET_TEMPLATE.format(port=chosen_port)
+    bookmarklet = _BOOKMARKLET_TEMPLATE.replace("__PORT__", str(chosen_port))
 
     bar = "=" * 64
     print("", file=sys.stderr)
